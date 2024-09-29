@@ -1,0 +1,219 @@
+l.nav > li a {
+    text-decoration: none;
+    color: var(--font-light); /* Ensure link text color matches the desired style */
+}
+
+/* Optional: Change color on hover */
+ul.nav > li a:hover {
+    color: #e5e4ea; /* Adjust to your preferred hover color */
+}
+
+
+/********** Common CSS Starts **********/  
+* {
+    margin: 1px;
+    padding: 1px;
+}
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #242424;
+}
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.main-section {
+    width: 100%;
+    float: left;
+    padding: 50px 0 40px 0;
+}
+.heading {
+    font-size: 22px;
+    font-weight: 500;
+    border-bottom: 1px solid #ff5722;
+    margin-bottom: 25px;
+    color: #ff5722;
+}
+/********** Common CSS Ends **********/
+
+/********** Logo CSS Starts **********/  
+.logo {
+    width: 110%;
+    float: right;
+}
+/********** Logo CSS Ends **********/
+
+/********** Main Menu CSS Starts **********/  
+:root {
+    --primary: #0d066f;
+    --accent: #e5e4ea;
+    --font-light: #e7e6f1;
+    --font-dark: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+/* Base =============================== */
+html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #F3F4F8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+ul.nav {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    background: var(--primary);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+  
+ul.nav > li {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 60px;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 60px;
+    letter-spacing: 2px;
+    color: var(--font-light);
+    cursor: pointer;
+}
+
+/* Remove underline from links in the navigation menu */
+ul.nav > li a {
+    text-decoration: none;
+    color: var(--font-light); /* Ensure link text color matches the desired style */
+}
+
+ul.dropdown > li a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent element */
+}
+
+
+
+/* Optional: Change color on hover */
+ul.nav > li a:hover {
+    color: #e00b0b; /* Adjust to your preferred hover color */
+}
+  
+ul.nav > li:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+  
+ul.nav > li:hover ul.dropdown {
+    visibility: visible;
+    transform: translate(0, 0);
+    opacity: 1;
+    z-index: 0;
+}
+  
+ul.nav > li:hover ul.dropdown > li {
+    animation: slideInLeft 0.3s ease-in-out backwards;
+}
+  
+ul.nav > li:first-child {
+    border-top-left-radius: 6px;
+}
+  
+ul.nav > li:last-child {
+    border-top-right-radius: 6px;
+}
+  
+/* Ensure dropdown remains visible when focused */
+ul.dropdown:focus-within {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Dropdown menu styling */
+ul.dropdown {
+    visibility: hidden; /* Initially hidden */
+    display: flex;
+    position: absolute;
+    top: 100%; /* Position below the parent */
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    margin: 0;
+    padding: 5px 0;
+    list-style: none;
+    background: #fff; /* White background */
+    color: var(--font-dark); /* Dark text color */
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 1px 2px 5px -1px rgba(0, 0, 0, 0.15), 0px 4px 14px -1px rgba(0, 0, 0, 0.10);
+    transform: translate(0, -60px);
+    transition: transform 0.2s ease-out, opacity 0.2s;
+    opacity: 0;
+    z-index: -1;
+}
+ul.dropdown.h
+{
+    text-decoration: none;
+    color: #ff5722;
+}
+
+/* Hover effect */
+ul.nav > li:hover ul.dropdown {
+    visibility: visible; /* Show dropdown */
+}
+
+.event {
+    color: aqua;
+    width: 34%;
+    margin-right: 35%;
+     float: right; 
+}
+.event div {
+    width: 89;
+    padding:35px;
+    background-color: #0d066f;
+}
+.event ul li {
+    margin-bottom: 20px;
+    width: 100%;
+    float: left;
+}
+
+
+.notice-board {
+    width: 50%;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ff5722;
+    border-radius: 10px;
+    box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ff5722;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.board-content li {
+    font-size: 18px;
+    color: #242424;
+    margin-bottom: 10px;
+}

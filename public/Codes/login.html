@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        /* Basic styles for the form */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sign Up Form -->
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form id="signUpForm">
+            <input type="text" id="signupName" placeholder="Name" required />
+            <input type="email" id="signupEmail" placeholder="Email" required />
+            <input type="password" id="signupPassword" placeholder="Password" required />
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email" required />
+            <input type="password" id="loginPassword" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Handle Sign Up (New User Registration)
+        document.getElementById('signUpForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent form from submitting the default way
+
+            // Collect form data for Sign Up
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            try {
+                // Send the sign-up data using Fetch
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, password }), // Convert form data to JSON
+                });
+
+                // Handle the response
+                if (response.ok) {
+                    alert('Registration successful! You can now log in.');
+                } else {
+                    const errorMessage = await response.text();
+                    alert(`Registration failed! ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error('Error during registration:', error);
+                alert('An error occurred during registration.');
+            }
+        });
+
+        // Handle Login (Existing User)
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent form from submitting the default way
+
+            // Collect form data for Login
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            try {
+                // Send the login data using Fetch
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }), // Convert form data to JSON
+                });
+
+                // Handle the response
+                if (response.ok) {
+                    alert('Login successful!');
+                    // You can redirect the user or update the UI as needed
+                } else {
+                    const errorMessage = await response.text();
+                    alert(`Login failed! ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('An error occurred while logging in.');
+            }
+        });
+    </script>
+
+</body>
+</html>
